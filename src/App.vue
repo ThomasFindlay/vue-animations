@@ -3,10 +3,14 @@ import { ref } from "vue";
 import HelloWorld from "./components/HelloWorld.vue";
 import FadeSlideTransition from "./components/FadeSlideTransition.vue";
 import StateDrivenAnimation from "./components/StateDrivenAnimation.vue";
+import AnimatingList from "./components/AnimatingList.vue";
+
 const show = ref(true);
 </script>
 
 <template>
+  <StateDrivenAnimation />
+  <AnimatingList />
   <button @click="show = !show">Toggle animation</button>
   <FadeSlideTransition>
     <div v-show="show">
@@ -14,7 +18,6 @@ const show = ref(true);
       <HelloWorld msg="Hello Vue 3 + Vite" />
     </div>
   </FadeSlideTransition>
-  <StateDrivenAnimation />
 </template>
 
 <style>
