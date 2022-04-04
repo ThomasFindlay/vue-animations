@@ -10,14 +10,14 @@ const show = ref(true);
 
 <template>
   <StateDrivenAnimation />
-  <!-- <AnimatingList />
+  <AnimatingList />
   <button @click="show = !show">Toggle animation</button>
   <FadeSlideTransition>
     <div v-show="show">
       <img width="200" height="200" alt="Vue logo" src="./assets/logo.png" />
       <HelloWorld msg="Hello Vue 3 + Vite" />
     </div>
-  </FadeSlideTransition> -->
+  </FadeSlideTransition>
 </template>
 
 <style>
