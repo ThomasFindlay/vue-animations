@@ -2,23 +2,25 @@
   <div :class="$style.circle"></div>
 </template>
 <script setup>
-import { ref } from "vue";
+import { ref, onUnmounted } from "vue";
 const pos = ref({
   x: 0,
   y: 0,
 });
 
-window.addEventListener(
-  "mousemove",
-  e => {
-    console.log("mousemove", e.clientX, e.clientY);
-    pos.value.x = `${e.clientX}px`;
-    pos.value.y = `${e.clientY}px`;
-  },
-  {
-    passive: true,
-  }
-);
+const onMouseMove = e => {
+  console.log("mousemove", e.clientX, e.clientY);
+  pos.value.x = `${e.clientX}px`;
+  pos.value.y = `${e.clientY}px`;
+};
+
+window.addEventListener("mousemove", onMouseMove, {
+  passive: true,
+});
+
+onUnmounted(() => {
+  window.removeEventListener("mousemove", onMouseMove);
+});
 </script>
 <style module>
 .circle {
